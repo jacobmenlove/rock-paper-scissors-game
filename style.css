@@ -6,7 +6,7 @@
 }
 
 body {
-    background: linear-gradient(135deg, #667eea, #5e2696);
+    background: linear-gradient(135deg, #8295ec, #3b1da8);
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -71,3 +71,31 @@ h1 {
     margin-bottom: 20px;
 }
 
+.option {
+    background-color: #297bcc;
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 120px;
+    max-width: 200px;
+}
+
+.option:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.option img {
+    width: 80px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.option p {
+    font-weight: bold;
+    color: #333;
+}
