@@ -23,7 +23,6 @@ body {
     width: 100%;
     overflow-y: auto;
     max-height: 95vh; 
-}
 
 h1 {
     text-align: center;
@@ -134,17 +133,17 @@ h1 {
     min-width: 80px;
 }
 
-#rock {
+.option#rock {
     background-color: #ffcccb; 
     border: 2px solid #e74c3c;
 }
 
-#paper {
+.option#paper {
     background-color: #ffeaa7; 
-    border: 2px solid #dcac54;
+    border: 2px solid #fdcb6e;
 }
 
-#scissors {
+.option#scissors {
     background-color: #c4e9c2; 
     border: 2px solid #27ae60;
 }
@@ -154,21 +153,22 @@ h1 {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-#rock.selected {
+.option#rock.selected {
     background-color: #e74c3c; 
     border: 2px solid #c0392b;
-    color: white;
 }
 
-#paper.selected {
+.option#paper.selected {
     background-color: #f1c40f; 
-    border: 2px solid #d68c13;
-    color: white;
+    border: 2px solid #f39c12;
 }
 
-#scissors.selected {
+.option#scissors.selected {
     background-color: #27ae60; 
     border: 2px solid #219653;
+}
+
+.option.selected p {
     color: white;
 }
 
@@ -182,10 +182,6 @@ h1 {
     font-weight: bold;
     color: #333;
     font-size: 0.9rem;
-}
-
-.option.selected p {
-    color: white;
 }
 
 .result-display, .choice-stats {
