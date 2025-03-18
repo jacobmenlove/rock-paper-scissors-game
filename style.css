@@ -7,7 +7,7 @@
 }
 
 body {
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #8698ea, #0f1563);
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -123,7 +123,7 @@ h1 {
 }
 
 .option {
-    background-color: #f8f9fa;
+    background-color: #6d8cef;
     border-radius: 10px;
     padding: 20px;
     cursor: pointer;
