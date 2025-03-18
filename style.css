@@ -2,11 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Lucida Console', monospace, sans-serif, 'Arial';
+    font-family: 'Arial', sans-serif;
 }
 
 body {
-    background: linear-gradient(135deg, #8295ec, #3b1da8);
+    background: linear-gradient(135deg, #667eea, #764ba2);
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -37,6 +37,10 @@ h1 {
     gap: 30px;
 }
 
+.game-info {
+    text-align: center;
+    margin-bottom: 10px;
+}
 
 .game-info p {
     font-size: 1.2rem;
@@ -72,11 +76,11 @@ h1 {
 }
 
 .option {
-    background-color: #297bcc;
+    background-color: #f8f9fa;
     border-radius: 10px;
     padding: 20px;
     cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     flex: 1;
@@ -89,9 +93,16 @@ h1 {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
+.option.selected {
+    background-color: #d4edda;
+    border: 2px solid #28a745;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
 .option img {
     width: 80px;
-    height: 100px;
+    height: 80px;
     margin-bottom: 10px;
 }
 
@@ -132,6 +143,7 @@ h1 {
     font-size: 1.5rem;
     font-weight: bold;
     color: #333;
+    transition: all 0.3s ease;
 }
 
 #wins {
@@ -144,6 +156,16 @@ h1 {
 
 #ties {
     color: #2196F3;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse 0.5s ease;
 }
 
 @media (max-width: 768px) {

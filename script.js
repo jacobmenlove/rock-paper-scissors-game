@@ -5,17 +5,57 @@ let rockCount = 0;
 let paperCount = 0;
 let scissorsCount = 0;
 
+let winsElement, tiesElement, lossesElement;
+let rockCountElement, paperCountElement, scissorsCountElement;
+let resultMessageElement;
+
 document.addEventListener('DOMContentLoaded', function() {
+ 
+    winsElement = document.getElementById('wins');
+    tiesElement = document.getElementById('ties');
+    lossesElement = document.getElementById('losses');
+    rockCountElement = document.getElementById('rockCount');
+    paperCountElement = document.getElementById('paperCount');
+    scissorsCountElement = document.getElementById('scissorsCount');
+    
     const startButton = document.getElementById('startButton');
-    const winsElement = document.getElementById('wins');
-    const tiesElement = document.getElementById('ties');
-    const lossesElement = document.getElementById('losses');
-    const rockCountElement = document.getElementById('rockCount');
-    const paperCountElement = document.getElementById('paperCount');
-    const scissorsCountElement = document.getElementById('scissorsCount');
     
     startButton.addEventListener('click', playRound);
+    
+    document.getElementById('rock').addEventListener('click', function() {
+        handleOptionClick('R');
+    });
+    
+    document.getElementById('paper').addEventListener('click', function() {
+        handleOptionClick('P');
+    });
+    
+    document.getElementById('scissors').addEventListener('click', function() {
+        handleOptionClick('S');
+    });
 });
+
+function handleOptionClick(choice) {
+  
+    highlightOption(choice);
+    
+    playRound();
+}
+
+function highlightOption(choice) {
+    // Remove highlight from all options
+    document.getElementById('rock').classList.remove('selected');
+    document.getElementById('paper').classList.remove('selected');
+    document.getElementById('scissors').classList.remove('selected');
+    
+    if (choice === 'R') {
+        document.getElementById('rock').classList.add('selected');
+    } else if (choice === 'P') {
+        document.getElementById('paper').classList.add('selected');
+    } else if (choice === 'S') {
+        document.getElementById('scissors').classList.add('selected');
+    }
+}
 
 function playRound() {
 
@@ -34,6 +74,8 @@ function playRound() {
         return;
     }
     
+    highlightOption(userChoice);
+    
     updateChoiceCount(userChoice);
     
     const choices = ['R', 'P', 'S'];
@@ -41,12 +83,12 @@ function playRound() {
     
     const result = determineWinner(userChoice, computerChoice);
     
-    let computerChoiceText = computerChoice === 'R' ? 'Rock' : computerChoice === 'P' ? 'Paper' : 'Scissors';
-    let userChoiceText = userChoice === 'R' ? 'Rock' : userChoice === 'P' ? 'Paper' : 'Scissors';
-    
     updateStats(result);
     
-    alert(`You chose: ${userChoiceText}\nComputer chose: ${computerChoiceText}\n\nResult: ${getResultText(result)}`);
+    let computerChoiceText = computerChoice === 'R' ? 'Rock' : computerChoice === 'P' ? 'Paper' : 'Scissors';
+    let userChoiceText = userChoice === 'R' ? 'Rock' : userChoice === 'P' ? 'Paper' : 'Scissors';
+
+    alert(`You chose: ${userChoiceText}\nComputer chose: ${computerChoiceText}\n\nResult: ${getResultText(result)}\n\nCurrent Stats:\nWins: ${wins}\nTies: ${ties}\nLosses: ${losses}`);
     
     const playAgain = confirm("Do you want to play again?");
     if (playAgain) {
@@ -81,10 +123,6 @@ function getResultText(result) {
 }
 
 function updateChoiceCount(choice) {
-    const rockCountElement = document.getElementById('rockCount');
-    const paperCountElement = document.getElementById('paperCount');
-    const scissorsCountElement = document.getElementById('scissorsCount');
-    
     if (choice === 'R') {
         rockCount++;
         rockCountElement.textContent = rockCount;
@@ -98,10 +136,6 @@ function updateChoiceCount(choice) {
 }
 
 function updateStats(result) {
-    const winsElement = document.getElementById('wins');
-    const tiesElement = document.getElementById('ties');
-    const lossesElement = document.getElementById('losses');
-    
     if (result === "win") {
         wins++;
         winsElement.textContent = wins;
@@ -115,5 +149,6 @@ function updateStats(result) {
 }
 
 function endGame() {
+    // Display the final results
     alert(`Game Over!\n\nFinal Score:\nWins: ${wins}\nTies: ${ties}\nLosses: ${losses}\n\nYour Choices:\nRock: ${rockCount}\nPaper: ${paperCount}\nScissors: ${scissorsCount}`);
 }
