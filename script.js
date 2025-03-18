@@ -13,3 +13,15 @@ const lossesElement = document.getElementById('losses');
 const rockCountElement = document.getElementById('rockCount');
 const paperCountElement = document.getElementById('paperCount');
 const scissorsCountElement = document.getElementById('scissorsCount');
+
+startButton.addEventListener('click', startGame);
+
+function startGame() {
+    if (gameIsActive) {
+        return;
+    }
+
+    gameIsActive = true;
+    playRound();
+}
+
